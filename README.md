@@ -1,4 +1,14 @@
 # Fullstack 2 - Movie Assignment
+# App Name - MediaQuest
+
+This media app allows users to search a variety of different movies and tv shows. They can add them to their favourites, see upcoming and top rated releases and even leave reviews.
+
+# Implemented Features
+
+The movie features were implemented as part of my earlier college learning, so I will not be going into detail on those in this ReadMe. I will be focusing on the new features I implemented to enhance this app experience.
+
+## TV Pages and Catalog
+
 
 ---
 
