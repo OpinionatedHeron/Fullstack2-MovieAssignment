@@ -95,4 +95,22 @@ export interface BaseTvProps {
   overview: string;
   popularity: number;
   vote_average: number;
+  vote_count: number;
+  favourite?: boolean;
+}
+
+export interface TvDetailsProps extends BaseTvProps {
+  genres: {
+    id: number;
+    name: string;
+  }[];
+  production_countries: {
+    iso_3166_1: string;
+    name: string;
+  }[];
+}
+
+export interface TvPageProps {
+  tv: TvDetailsProps;
+  images: MovieImage[]; // Reusing MovieImage interface as structure is same
 }
