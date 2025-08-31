@@ -77,3 +77,22 @@ export interface DiscoverMovies {
   total_results: number;
   results: BaseMovieProps[];
 }
+
+// Defining TV Type for TV view
+export interface BaseTvProps {
+  id: number;
+  name: string;
+  homepage: string | undefined;
+  poster_path?: string;
+  episode_run_time: number [];
+  first_air_date?: string;
+  last_air_date?: string;
+  number_of_episodes?: number;
+  number_of_seasons?: number;
+  status: string;
+  tagline: string;
+  original_language: string;
+  overview: string;
+  popularity: number;
+  vote_average: number;
+}
