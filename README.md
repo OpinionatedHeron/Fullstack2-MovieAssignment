@@ -27,6 +27,20 @@ Add and Remove Favourites has been added to TV Show views. This functions in an 
 ### Navigation
 I also updated the menu to include sub-menus for movies and tv shows. This is just to ensure easy navigation for users and that there is a clear disctiction between the movie pages versus the tv pages.
 
+### Deployment
+This app is also currently deployed using [Vercel](https://vercel.com). You can checkout this app here - [MediaQuest App](https://fullstack2-movie-assignment.vercel.app/) 
+
+## Getting Started
+If you would like to play around with this app, please feel free to clone this repository and test it out. Just remember that the access the full details, when testing out this app you will need an API Key for [TMDB](https://www.themoviedb.org/). When you sign up for an API key here you will be able to add additional views such as showcasing Actors or Networks.
+
+### Basic Start Up
+1. Clone the repository
+   `git clone https://github.com/OpinionatedHeron/Fullstack2-MovieAssignment.git`
+2. Install dependencies
+   `npm install`
+3. Start development server (will create a local server)
+   `npm run dev`
+
 
 ---
 
