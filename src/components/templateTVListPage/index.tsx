@@ -19,16 +19,17 @@ const styles = {
 interface TemplateTvListPageProps {
   title: string;
   tvShows: BaseTvProps[];
+  action: (t: BaseTvProps) => React.ReactNode;
 }
 
-const TemplateTvListPage: React.FC<TemplateTvListPageProps> = ({ title, tvShows }) => {
+const TemplateTvListPage: React.FC<TemplateTvListPageProps> = ({ title, tvShows, action }) => {
   return (
     <Grid container spacing={2} sx={styles.gridListRoot}>
       <Grid item xs={12}>
         <Header title={title} />
       </Grid>
       <Grid item xs={12}>
-        <TvList tvShows={tvShows} />
+        <TvList tvShows={tvShows} action={action}/>
       </Grid>
     </Grid>
   );

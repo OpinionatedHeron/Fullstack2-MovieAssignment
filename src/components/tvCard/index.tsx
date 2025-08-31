@@ -9,7 +9,6 @@ import Typography from "@mui/material/Typography";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
 import img from "../../images/film-poster-placeholder.png";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { BaseTvProps } from "../../types/interfaces";
@@ -28,9 +27,10 @@ const styles = {
 
 interface TvCardProps {
   tv: BaseTvProps;
+  action: (t: BaseTvProps) => React.ReactNode;
 }
 
-const TvCard: React.FC<TvCardProps> = ({ tv }) => {
+const TvCard: React.FC<TvCardProps> = ({ tv, action }) => {
   const { tvFavourites } = useContext(MoviesContext);
   const isFavourite = tvFavourites.includes(tv.id);
 
@@ -75,7 +75,7 @@ const TvCard: React.FC<TvCardProps> = ({ tv }) => {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        <AddToTvFavouritesIcon {...tv} />
+        {action(tv)}
         <Link to={`/tv/${tv.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...

@@ -4,6 +4,7 @@ import Spinner from "../components/spinner";
 import TemplateTvListPage from "../components/templateTVListPage";
 import { BaseTvProps } from "../types/interfaces";
 import { getTVShows } from "../api/tmdb-api";
+import AddToTvFavouritesIcon from "../components/cardIcons/tvAddToFavourites";
 
 const TvDiscoverPage: React.FC = () => {
   const { data, error, isLoading, isError } = useQuery<BaseTvProps[], Error>(
@@ -16,7 +17,13 @@ const TvDiscoverPage: React.FC = () => {
 
   const tvShows = data ?? [];
 
-  return <TemplateTvListPage title="Discover TV Shows" tvShows={tvShows} />;
+  return (
+    <TemplateTvListPage
+      title="Discover TV Shows"
+      tvShows={tvShows}
+      action={(tv: BaseTvProps) => <AddToTvFavouritesIcon {...tv} />}
+    />
+  );
 };
 
 export default TvDiscoverPage;
