@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import PageTemplate from "../components/templateMovieListPage";
-import { getMovies } from "../api/tmdb-api";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
+import { getDiscoverMoviesPage } from "../api/tmdb-api";
 import useFiltering from "../hooks/useFiltering";
 import MovieFilterUI, {
   titleFilter,
   genreFilter,
 } from "../components/movieFilterUI";
-import { DiscoverMovies } from "../types/interfaces";
+import { DiscoverMovies, BaseMovieProps } from "../types/interfaces";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
@@ -23,14 +25,20 @@ const genreFiltering = {
 };
 
 const HomePage: React.FC = () => {
-  const { data, error, isLoading, isError } = useQuery<DiscoverMovies, Error>(
-    "discover",
-    getMovies
-  );
+  const [page, setPage] = useState(1);
+
   const { filterValues, setFilterValues, filterFunction } = useFiltering([
     titleFiltering,
     genreFiltering,
   ]);
+
+  const { data, error, isLoading, isError, isFetching } = useQuery<DiscoverMovies, Error>(
+    ["discover-movies", page, filterValues],
+    () => getDiscoverMoviesPage(page),
+    {
+      keepPreviousData: true,
+    }
+  );
 
   if (isLoading) {
     return <Spinner />;
@@ -47,10 +55,12 @@ const HomePage: React.FC = () => {
         ? [changedFilter, filterValues[1]]
         : [filterValues[0], changedFilter];
     setFilterValues(updatedFilterSet);
+    setPage(1);
   };
 
   const movies = data ? data.results : [];
   const displayedMovies = filterFunction(movies);
+  const total_pages = data?.total_pages ?? 1;
 
   return (
     <>
@@ -66,6 +76,15 @@ const HomePage: React.FC = () => {
         titleFilter={filterValues[0].value}
         genreFilter={filterValues[1].value}
       />
+      <Stack alignItems="center" sx={{ my: 2 }}>
+        <Pagination
+          count={total_pages}
+          page={page}
+          onChange={(_, value) => setPage(value)}
+          color="primary"
+        />
+      </Stack>
+      {isFetching ? <Spinner /> : null}
     </>
   );
 };
