@@ -27,7 +27,6 @@ const styles = {
 };
 
 const TvDetails: React.FC<TvDetailsProps> = (tv) => {
-    const minutes = tv.episode_run_time[0];
 
   return (
     <>

@@ -136,7 +136,7 @@ export const getTv = (id: string) => {
 // Adding TV show images
 export const getTvImages = (id: string | number) => {
   return fetch(
-    `https://api.themoviedb.org/3/tv/top_rated?api_key=${
+    `https://api.themoviedb.org/3/tv/${id}/images?api_key=${
       import.meta.env.VITE_TMDB_KEY
     }`
   )
@@ -146,7 +146,7 @@ export const getTvImages = (id: string | number) => {
       }
       return response.json();
     })
-    .then((json) => json.posters)
+    .then((json) => json.posters ?? [])
     .catch((error) => {
       throw error;
     });
