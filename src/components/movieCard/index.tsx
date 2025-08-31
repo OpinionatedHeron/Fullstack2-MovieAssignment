@@ -1,4 +1,4 @@
-import React, { MouseEvent, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import Card from "@mui/material/Card";
@@ -31,7 +31,7 @@ interface MovieCardProps {
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({ movie, action }) => {
-  const { favourites, addToFavourites, mustWatch } = useContext(MoviesContext);
+  const { favourites, mustWatch } = useContext(MoviesContext);
 
   const isFavourite = favourites.find((id) => id === movie.id) ? true : false;
   const isMustWatch = mustWatch.find((id) => id === movie.id) ? true : false;

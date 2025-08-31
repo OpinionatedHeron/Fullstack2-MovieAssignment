@@ -26,7 +26,7 @@ const TopRatedTVPage: React.FC = () => {
 
   return (
     <>
-      <TemplateTvListPage title="Top Rated TV Shows" tvShows={tvShows} action={(tv) => <AddToTvFavouritesIcon tv={tv} />}/>
+      <TemplateTvListPage title="Top Rated TV Shows" tvShows={tvShows} action={(tv) => <AddToTvFavouritesIcon {...tv} />}/>
       <Stack alignItems="center" sx={{ my: 2 }}>
         <Pagination
           count={total_pages}

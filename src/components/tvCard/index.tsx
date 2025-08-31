@@ -15,7 +15,6 @@ import { BaseTvProps } from "../../types/interfaces";
 import { Link } from "react-router-dom";
 import Avatar from "@mui/material/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
-import AddToTvFavouritesIcon from "../cardIcons/tvAddToFavourites";
 
 const styles = {
   card: { maxWidth: 345 },

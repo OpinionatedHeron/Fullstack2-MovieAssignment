@@ -60,7 +60,7 @@ export interface MovieListPageTemplateProps extends BaseMovieListProps {
     content: string,
     agree: boolean,
     rating: number,
-    movieId: number,
+    id: number,
   }
 
 
