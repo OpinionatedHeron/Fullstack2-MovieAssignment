@@ -46,7 +46,7 @@ const ReviewForm: React.FC<BaseMovieProps> = (movie) => {
   };
 
   const onSubmit: SubmitHandler<Review> = (review) => {
-    review.movieId = movie.id;
+    review.id = movie.id;
     review.rating = rating;
     context.addReview(movie, review);
     setOpen(true);
