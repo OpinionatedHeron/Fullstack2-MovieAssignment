@@ -1,4 +1,4 @@
-# Fullstack2-MovieAssignment
+# Fullstack 2 - Movie Assignment
 
 ---
 
