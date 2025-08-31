@@ -169,3 +169,64 @@ export const getTopRatedTvShows = () => {
     })
     .then((json) => json.results);
 };
+
+// API details for pagination
+export const getDiscoverTvPage = (page: number) => {
+  return fetch(
+    `https://api.themoviedb.org/3/discover/tv?api_key=${
+      import.meta.env.VITE_TMDB_KEY
+    }&language=en-US&include_adult=false&include_video=false&page=${page}`
+  )
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(
+          `Unable to fetch TV shows. Response status: ${response.status}`
+        );
+      return response.json();
+    })
+};
+
+export const getTopRatedTvPage = (page: number) => {
+  return fetch(
+    `https://api.themoviedb.org/3/tv/top_rated?api_key=${
+      import.meta.env.VITE_TMDB_KEY
+    }&language=en-US&page=${page}`
+  )
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(
+          `Unable to fetch top rated TV shows. Response status: ${response.status}`
+        );
+      return response.json();
+    })
+};
+
+export const getDiscoverMoviesPage = (page: number) => {
+  return fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${
+      import.meta.env.VITE_TMDB_KEY
+    }&language=en-US&include_adult=false&include_video=false&page=${page}`
+  )
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(
+          `Unable to fetch movies. Response status: ${response.status}`
+        );
+      return response.json();
+    })
+};
+
+export const getUpcomingMoviesPage = (page: number) => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=${
+      import.meta.env.VITE_TMDB_KEY
+    }&language=en-US&page=${page}`
+  )
+    .then((response) => {
+      if (!response.ok)
+        throw new Error(
+          `Unable to fetch upcoming movies. Response status: ${response.status}`
+        );
+      return response.json();
+    })
+};

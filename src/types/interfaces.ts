@@ -114,3 +114,10 @@ export interface TvPageProps {
   tv: TvDetailsProps;
   images: MovieImage[]; // Reusing MovieImage interface as structure is same
 }
+
+export interface DiscoverTv {
+  page: number;
+  total_pages: number;
+  total_results: number;
+  results: BaseTvProps[];
+}
