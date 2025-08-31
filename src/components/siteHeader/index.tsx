@@ -36,6 +36,7 @@ const menuOptions = [
       items: [
         { label: "Discover TV", path: "/tv/discover" },
         { label: "Top Rated", path: "/tv/top-rated" },
+        { label: "Favorite TV", path: "/tv/favourites" },
       ],
     },
   ];
@@ -76,10 +77,10 @@ const SiteHeader: React.FC = () => {
       <AppBar position="fixed" elevation={0} color="primary">
         <Toolbar>
           <Typography variant="h4" sx={styles.title}>
-            TMDB Client
+            MediaQuest
           </Typography>
           <Typography variant="h6" sx={styles.title}>
-            All you ever wanted to know about Movies!
+            Start your viewing adventure here!
           </Typography>
 
           {isMobile ? (

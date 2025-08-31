@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -10,10 +10,13 @@ import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
-import img from '../../images/film-poster-placeholder.png';
+import img from "../../images/film-poster-placeholder.png";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { BaseTvProps } from "../../types/interfaces"; 
+import { BaseTvProps } from "../../types/interfaces";
 import { Link } from "react-router-dom";
+import Avatar from "@mui/material/Avatar";
+import { MoviesContext } from "../../contexts/moviesContext";
+import AddToTvFavouritesIcon from "../cardIcons/tvAddToFavourites";
 
 const styles = {
   card: { maxWidth: 345 },
@@ -28,10 +31,25 @@ interface TvCardProps {
 }
 
 const TvCard: React.FC<TvCardProps> = ({ tv }) => {
- 
+  const { tvFavourites } = useContext(MoviesContext);
+  const isFavourite = tvFavourites.includes(tv.id);
+
   return (
     <Card sx={styles.card}>
-      <CardHeader title={tv.name} />
+      <CardHeader
+        avatar={
+          isFavourite ? (
+            <Avatar sx={styles.avatar}>
+              <FavoriteIcon />
+            </Avatar>
+          ) : null
+        }
+        title={
+          <Typography variant="h5" component="p">
+            {tv.name}{" "}
+          </Typography>
+        }
+      />
       <CardMedia
         sx={styles.media}
         image={
@@ -57,17 +75,15 @@ const TvCard: React.FC<TvCardProps> = ({ tv }) => {
         </Grid>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" >
-          <FavoriteIcon color="primary" fontSize="large" />
-        </IconButton>
+        <AddToTvFavouritesIcon {...tv} />
         <Link to={`/tv/${tv.id}`}>
-        <Button variant="outlined" size="medium" color="primary">
-          More Info ...
-        </Button>
+          <Button variant="outlined" size="medium" color="primary">
+            More Info ...
+          </Button>
         </Link>
       </CardActions>
     </Card>
   );
-}
+};
 
 export default TvCard;
