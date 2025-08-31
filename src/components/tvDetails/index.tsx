@@ -55,9 +55,13 @@ const TvDetails: React.FC<TvDetailsProps> = (tv) => {
           label={`${tv.vote_average} (${tv.vote_count}`}
         />
         <Chip label={`First Aired: ${tv.first_air_date}`} />
+        </Paper>
+        <Paper component="ul" sx={styles.chipSet}>
+          <Chip label={`Status: ${tv.status}`} />
+        </Paper>
+        <Paper component="ul" sx={styles.chipSet}>
         <Chip label={`Seasons: ${tv.number_of_seasons}`} />
         <Chip label={`Episodes: ${tv.number_of_episodes}`} />
-        <Chip label={`Status: ${tv.status}`} />
       </Paper>
     </>
   );

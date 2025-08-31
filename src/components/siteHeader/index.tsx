@@ -27,13 +27,16 @@ const menuOptions = [
       label: "Movies",
       items: [
         { label: "Discover Movies", path: "/" },
-        { label: "Favorites", path: "/movies/favourites" },
+        { label: "Favorite Movies", path: "/movies/favourites" },
         { label: "Upcoming", path: "/movies/upcoming" },
       ],
     },
     {
       label: "TV Shows",
-      items: [{ label: "Discover TV", path: "/tv/discover" }],
+      items: [
+        { label: "Discover TV", path: "/tv/discover" },
+        { label: "Top Rated", path: "/tv/top-rated" },
+      ],
     },
   ];
 

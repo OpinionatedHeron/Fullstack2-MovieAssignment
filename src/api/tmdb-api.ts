@@ -136,7 +136,7 @@ export const getTv = (id: string) => {
 // Adding TV show images
 export const getTvImages = (id: string | number) => {
   return fetch(
-    `https://api.themoviedb.org/3/tv/${id}/images?api_key=${
+    `https://api.themoviedb.org/3/tv/top_rated?api_key=${
       import.meta.env.VITE_TMDB_KEY
     }`
   )
@@ -150,4 +150,22 @@ export const getTvImages = (id: string | number) => {
     .catch((error) => {
       throw error;
     });
+};
+
+// Adding Top Rated TV shows
+export const getTopRatedTvShows = () => {
+  return fetch(
+    `https://api.themoviedb.org/3/tv/top_rated?api_key=${
+      import.meta.env.VITE_TMDB_KEY
+    }&language=en-US&page=1`
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(
+          `Failed to get top rated TV shows. Response status: ${response.status}`
+        );
+      }
+      return response.json();
+    })
+    .then((json) => json.results);
 };
