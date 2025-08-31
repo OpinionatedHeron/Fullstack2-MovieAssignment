@@ -7,6 +7,26 @@ This media app allows users to search a variety of different movies and tv shows
 
 The movie features were implemented as part of my earlier college learning, so I will not be going into detail on those in this ReadMe. I will be focusing on the new features I implemented to enhance this app experience.
 
+### TV Show Discovery
+  - **List View for TV Shows:** A dedicated page for browsing TV shows. Showcases series as a card which shows a promotional image of the series, date it was first aired, and average rating. They also have an interactive favourites icon and a button that directs to a more info page about the series. Uses TMDB's TV api information and details in order to generate the contents of the page.
+  - **Detail View for TV Shows:** This is where the 'More Info' button directs the user when selected from the show card. It contains more detailed information about the show, including an overview of the show, its genres, number of seasons and episodes, and if it is a completed or returning show. 
+  - **Top Rated View for TV Shows:** This functions similarly to the list view of shows. It showcases the same kind of show card used in the basic list view, the main difference is that it uses a different api url which ensures that the order the shows appear is based on their rating, rather than the generic order in the main view.
+
+### Pagination
+Pagination has been added to all views (ie movies & tv shows). This allows the user to see multiple pages of information, therefore allowing them to scroll through more options. For more information on pagination, please check out [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/guides/paginated-queries?from=reactQueryV3). 
+
+I also included an auto-reset to page 1 when filters are used. Currently, this only works for the discover movies view, as I have not implemented filters in additional views. Pagination has been added to the following views:
+  - TV Discovery Page
+  - Top Rated TV Shows Page
+  - Upcoming Movies Page
+  - Movies Home Page
+
+### Favourites
+Add and Remove Favourites has been added to TV Show views. This functions in an identical manner to movies - when users select an option as their favourite it appears as a red heart icon on the top of the card. Their favourites are also stored in a seperate page where they can look at all their TV favourites in one place. In the favourites page, users can remove favourites, so it will no longer show on that page. I created seperate pages for Move and TV Show favourites for easier navigation.
+
+### Navigation
+I also updated the menu to include sub-menus for movies and tv shows. This is just to ensure easy navigation for users and that there is a clear disctiction between the movie pages versus the tv pages.
+
 
 ---
 
